@@ -4,34 +4,25 @@ const inputAmigo= document.getElementById("amigo");
 const ulListaAmigos = document.getElementById("listaAmigos")
 const ulResultado = document.getElementById("resultado");
 
-function agregarAmigo(){
- //Validaciones de entrada//
-  if (inputAmigo.value === "") {
-    alert("por favor, inserte un nombre");
-    return limpiarCaja();
-  }
-    const regexNumero = /\d/
-    if (regexNumero.test(inputAmigo.value)) {
-      alert("Tu nombre no puede tener números, elige otro :)");
-      return limpiarCaja();
-  }
-    const regexSigno = /[^a-zA-Z\s]/;
-    if (regexSigno.test(inputAmigo.value)){
-      alert ("Tu nombre no puede tener signos (@, #, $, *, etc...), elige otro");
-      return limpiarCaja();
-  }
+function agregarAmigo() {
   const nombres = inputAmigo.value.trim();
-  if(listaAmigos.includes(nombres)){
-    alert ("Este nombre ya existe, crea otro");
+  let mensajeError = "";
+
+  mensajeError = nombres === "" ? "Por favor, inserte un nombre" :
+    /\d/.test(nombres) ? "Tu nombre no puede tener números, elige otro :)" :
+    /[^a-zA-Z\s]/.test(nombres) ? "Tu nombre no puede tener signos (@, #, $, *, etc...), elige otro" :
+    listaAmigos.includes(nombres) ? "Este nombre ya existe, crea otro" : "";
+
+  if (mensajeError) {
+    alert(mensajeError);
     return limpiarCaja();
   }
-    listaAmigos.push(inputAmigo.value);
-    ulListaAmigos.innerHTML += `<li>${listaAmigos.value}</li>`;
-  
-    limpiarCaja ();
-    actualizarListaAmigos();
-  
-  }
+
+  listaAmigos.push(nombres);
+  ulListaAmigos.innerHTML += `<li>${nombres}</li>`;
+  limpiarCaja();
+  actualizarListaAmigos();
+}
   
 function actualizarListaAmigos(){
 ulListaAmigos.innerHTML= "";
