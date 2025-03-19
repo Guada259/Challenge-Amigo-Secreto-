@@ -11,7 +11,7 @@ Amigo Secreto es una página web que permite a los usuarios ingresar una lista d
 ## Instalación y uso
 1. Clona este repositorio:
    ```sh
-   git clone https://github.com/tu-usuario/amigo-secreto.git
+   git clone https://github.com/Guada259/Challenge-Amigo-Secreto-.git/
    ```
 2. Abre el archivo `index.html` en tu navegador.
 
