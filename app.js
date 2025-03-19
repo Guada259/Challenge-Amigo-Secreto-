@@ -1,5 +1,5 @@
 
-const listaAmigos = [];
+let listaAmigos = [];
 const inputAmigo = document.getElementById("amigo");
 const ulListaAmigos = document.getElementById("listaAmigos")
 const ulResultado = document.getElementById("resultado");
@@ -52,4 +52,6 @@ function sortearAmigo() {
   const random = Math.floor(Math.random() * listaAmigos.length);
   const amigoSecreto = listaAmigos[random];
   ulResultado.innerHTML = `<p>Tu amigo secreto es ${amigoSecreto}</p>`
+  ulListaAmigos.innerHTML = "";
+  listaAmigos = [];
 }
